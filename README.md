@@ -21,6 +21,18 @@ This repo can be used to deploy later updates after the initial environment is s
 
 ![image info](./docs/images/Terraform_Ansible.png)
 
+### Workflow in general 
+1. Query information about your Openstack cluster (info like images name and more) and download credentials file to be able to login into your cluster 
+2. Customize the deployment:\
+   a. Add path to your public ssh-key\
+   b. Edit variables values use the queried info you collected\
+   c. Place the credentials file in the main folder\
+   d. Customize the VM configuration by editing and adding roles to Ansible
+ 3. Run the deployer.sh
+ 4. Terraform loads configuration files and compare to current status, and provisioning the infrastructure
+ 5. Terraform created a `hosts` file with IPs of the VMs to be used by Ansible, create a status file to describe the deployment
+ 6. Ansible reads playbook configuration and configure the VMs
+ 
 ### OpenStack Infrastructure Provisioning using Terraform
 - Deploy public ssh key as default for all VM
 - Single Security Group include two rules: ssh and XRDP
@@ -47,18 +59,6 @@ Our configuration set of settings includes the following:
 
 Those settings can be modified by editing the roles in the Ansible directory.
 
-### Workflow in general 
-1. Query information about your Openstack cluster (info like images name and more) and download credentials file to be able to login into your cluster 
-2. Customize the deployment:\
-   a. Add path to your public ssh-key\
-   b. Edit variables values use the queried info you collected\
-   c. Place the credentials file in the main folder\
-   d. Customize the VM configuration by editing and adding roles to Ansible
- 3. Run the deployer.sh
- 4. Terraform loads configuration files and compare to current status, and provisioning the infrastructure
- 5. Terraform created a `hosts` file with IPs of the VMs to be used by Ansible, create a status file to describe the deployment
- 6. Ansible reads playbook configuration and configure the VMs
- 
 <br>
 
 ## Usage
