@@ -3,7 +3,7 @@
 
 ## Introduction
 
-The goal of this repo is to automate the deployment and configuration of VM base environments on an OpenStack cluster.
+The goal of this repo is to automate the deployment and configuration of VM base environment on an OpenStack cluster.
 
  The deployer operates two main tasks:
   - Infrastructure provisioning: Creates virtual machines, security groups, floating IPs, and uploading ssh-key. \
