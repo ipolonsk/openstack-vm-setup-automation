@@ -12,7 +12,7 @@ The goal of this repo is to automate the deployment and configuration of VM base
   - Infrastructure configuration: for each VM, we run a set of pre-configured settings listed in the sections below.\
  Implementation tool - Ansible.
 
-The configuration in this repo is for the [ROSE on MOC](https://github.com/RedHat-Israel/ROSE) project and can easily be adjusted if needed.
+The configuration in this repo is for the [ROSE](https://github.com/RedHat-Israel/ROSE) on [MOC](https://massopen.cloud/) project and can easily be adjusted if needed.
 
 This repo can be used to deploy later updates after the initial environment is set up.
 <br>
