@@ -1,5 +1,5 @@
 
-# OpenStack VM setup Automation
+# OpenStack VM Setup Automation
 
 ## Introduction
 
