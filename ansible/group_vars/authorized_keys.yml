@@ -1,0 +1,4 @@
+---
+## add the keys you want to deploy to the vms
+authorized_keys:
+  - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCmmX1MZVd32Ucm+WBna/qcB5oUDyyjM2oc3KIkvWjQe1T2+J8/Iatu3n+cCpaO/isbpZqjfNvbYRWhzRzqoQp8OFieFERYjjpnrCBdrP3DaY9aupsmi2LJ49NAxb3qy3IA9L4/zS3LV6N/0hiUei2xGNl1Z4wIjGOPNtGKhzhNfccxSuB8LzToUlw0TIp0QuoBBY4RtpcfVwH/oSqFwroM0ohtn9Gd40PNnMlnWm9aiNVUnKoG1u+W4NEjktTI2lAlIvBYEfpSPKa2PcQ3tG9fpD2p+57Wh+XAoKHHlqLRvI5IHuhAgJhHT7eJcaqXsyzZ8zwH0iT3ijVDPKYaW9VT ipolonsk@ipolonsk.tlv.csb

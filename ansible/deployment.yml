@@ -1,0 +1,19 @@
+---
+#This playbook setup the initial deployment on "clean" vms, running it only once to configure all the vms.
+- hosts: vm
+  remote_user: centos
+  become: yes
+
+  vars_files:
+    - group_vars/vars.yml
+    - group_vars/authorized_keys.yml
+
+  roles:
+    - gui
+    - users
+    - xrdp
+    - python
+    - chrome
+    - git
+    - sshkeys
+    - reboot

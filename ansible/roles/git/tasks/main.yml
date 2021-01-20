@@ -1,0 +1,23 @@
+---
+- block:
+  - name: Delete the ROSE folder
+    file:
+      state: absent
+      path: '/home/{{ student_user }}/ROSE'
+
+  - name: clone the ROSE projcet git repo to local folder
+    git:
+      repo: "{{ repo_url }}"
+      dest: "{{ dest_repo }}"
+      version: master
+
+  - name: change ownership and permission of ROSE folder to able acces to all users
+    file:
+      path: "{{ dest_repo }}"
+      recurse: yes
+      owner: "{{ student_user }}"
+      group: "{{ student_user }}"
+      state: directory
+      mode: '0777'
+  tags:
+    - git

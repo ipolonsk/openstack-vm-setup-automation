@@ -1,0 +1,47 @@
+---
+- name: Install ptyhon and dev packages
+  yum:
+    name: "{{ python_dev_packages }}"
+    state: present
+
+- name: upgrade pip
+  pip:
+   name: pip
+   state: latest
+
+- name: upgrade pip by command
+  shell: pip install --upgrade pip
+
+- name: install pipenv
+  pip:
+    name: pipenv
+
+- name: install pytest in manully way
+  shell: pip install --ignore-installed pytest
+
+- name: Download Python 3.7.2 using url
+  get_url:
+    url: "{{ python_dowload_url }}"
+    dest: "{{ dest_python_down }}"
+    mode: '777'
+
+- name: Extract python3.7.2 zip
+  unarchive:
+    src: "{{ dest_python_down }}"
+    dest: /tmp/
+    remote_src: yes
+
+- name: Change the working directory to python and run the installation
+  shell: ./configure --enable-optimizations
+  args:
+    chdir: /tmp/Python-3.7.2
+  async: 900
+  poll: 30
+
+- name: Change the working directory to python and run the altinstall
+  shell: make altinstall
+  args:
+    chdir: /tmp/Python-3.7.2
+  async: 900
+  poll: 30
+

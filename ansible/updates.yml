@@ -1,0 +1,8 @@
+---
+# This playbook is for deploying updates on the production env(students vms), test on dev before running it
+# notied the user is admin, have your public key at admin's authorized_keys or change remote user to be centos
+- hosts: vm
+  remote_user: admin
+  become: yes
+  roles:
+    - updates_testing

@@ -1,0 +1,57 @@
+---
+# User and project info
+sudo_user: admin
+student_user: student
+repo_url: "https://github.com/RedHat-Israel/ROSE.git"
+dest_repo: "/home/student/ROSE"
+
+# Python version to be installed and packages
+python_dowload_url: https://www.python.org/ftp/python/3.7.2/Python-3.7.2.tgz
+dest_python_down: /tmp/Python-3.7.2.tgz
+
+python_packages:
+  - python3
+  - git
+  - python
+  - python-pip
+  - tmux
+  - sl
+  - tree
+  - cowsay
+  - fortune-mod
+
+python_dev_packages:
+  - gcc
+  - openssl-devel
+  - bzip2-devel
+  - libffi-devel
+  - libselinux-python
+  - python3
+  - git
+  - python
+  - python-pip
+  - tmux
+  - sl
+  - tree
+  - cowsay
+  - fortune-mod
+
+pip_packages:
+  - pip==20.2.4
+  - pipenv==2020.11.4
+
+# packages to enable remote gui connection
+xrdp_packages:
+  - tigervnc-server
+  - xrdp
+
+# 3389-XRDP, 8888 and 8880 related to the ROSE game.
+firewall_ports:
+  - 3389/tcp
+  - 8888/tcp
+  - 8880/tcp
+
+enabled_services:
+  - xrdp
+  - firewalld
+

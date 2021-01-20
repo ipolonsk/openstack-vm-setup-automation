@@ -1,0 +1,31 @@
+---
+- name: update all packages to letest via yum
+  yum:
+    name: "*"
+    state: latest
+  async: 1500
+  poll: 20
+
+- name: Install the 'Graphical Administration Tools' package group
+  yum:
+    name: "@Graphical Administration Tools"
+    state: present
+
+- name: Install the 'Gnome Desktop' package group
+  yum:
+    name: "@^GNOME Desktop"
+    state: present
+  async: 1500
+  poll: 20
+
+- name: Create a symbolic link for run level (run gui on startup)
+  file:
+    src: /lib/systemd/system/runlevel5.target
+    dest: /etc/systemd/system/default.target
+    state: link
+
+- name: set up default run level to be graphical (run gui on startup)
+  file:
+    src: /usr/lib/systemd/system/graphical.target
+    dest: /etc/systemd/system/default.target
+    state: link

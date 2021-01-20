@@ -1,0 +1,21 @@
+---
+- name: create admin user
+  user:
+    name: "{{ sudo_user }}"
+    generate_ssh_key: yes
+
+- name: grant sudo privileges to admin user
+  copy:
+    content: |-
+      admin ALL=(root) NOPASSWD:ALL
+    dest: '/etc/sudoers.d/{{ sudo_user }}'
+    mode: "0440"
+    owner: root
+    group: root
+
+- name: create student user
+  user:
+    name: "{{ student_user }}"
+    generate_ssh_key: yes
+
+

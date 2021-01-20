@@ -1,0 +1,11 @@
+---
+- name: Download chrome rpm using url to tmp folder
+  get_url:
+   url: https://dl.google.com/linux/direct/google-chrome-stable_current_x86_64.rpm
+   dest: /tmp/google-chrome-stable_current_x86_64.rpm
+   mode: '777'
+
+- name: Install chrome rpm from a local rpm using yum
+  yum:
+   name: /tmp/google-chrome-stable_current_x86_64.rpm
+   state: present

@@ -1,0 +1,29 @@
+---
+- name: Install epel-release
+  yum:
+    name: epel-release
+    state: present
+
+- name: Install xrdp packages
+  yum:
+    name: "{{ xrdp_packages }}"
+    state: present
+
+- name: Enable and start xrdp and firewalld service
+  systemd:
+    name: "{{ item }}"
+    state: started
+    enabled: yes
+  loop: "{{ enabled_services }}"
+
+- name: permit traffic for xrdp,game and game client ports
+  firewalld:
+    port: "{{ item }}"
+    permanent: true
+    state: enabled
+  loop: "{{ firewall_ports }}"
+
+- name: reload service firewalld
+  systemd:
+    name: firewalld
+    state: reloaded

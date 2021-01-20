@@ -1,0 +1,16 @@
+---
+# This is just an exmple of the taks to run on the vms
+- name: Git checkout
+  git:
+    repo: "https://github.com/RedHat-Israel/ROSE.git"
+    dest: "/home/admin/ROSE"
+    version: master
+
+- name: change ownership and permission of ROSE folder
+  file:
+    path: "/home/admin/ROSE"
+    recurse: yes
+    owner: admin
+    group: admin
+    state: directory
+    mode: '0777'

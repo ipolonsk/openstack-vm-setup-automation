@@ -1,0 +1,7 @@
+---
+- name: copy ssh keys to admin user
+  authorized_key:
+    user: "{{ sudo_user }}"
+    state: present
+    key: "{{ item }}"
+  loop: "{{ authorized_keys }}"

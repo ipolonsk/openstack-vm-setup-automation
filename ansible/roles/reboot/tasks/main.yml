@@ -1,0 +1,6 @@
+---
+- name: reboot the system to apply changes
+  reboot:
+    reboot_timeout: 900
+  tags:
+    - reboot
