@@ -48,7 +48,7 @@ This repo can be used to deploy later updates after the initial environment is s
 ([guide how to get resources information](https://github.com/ipolonsk/openstack-vms-automation/blob/master/docs/get_resources_names.md))
 
 ### VM Configuration using Ansible
-Our configuration set of settings includes the following:
+Our example configuration set of settings includes the following:
 - Install Graphical Tool and use it as default while booting
 - Install and configure XRDP service and firewall roles to allow GUI access for the student from a windows pc
 - Install development tools such as: python3,pip,git,tmux,GCC,pytest,pipenv,chrome and more
@@ -63,7 +63,7 @@ Those settings can be modified by editing the roles in the Ansible directory.
 
 ## Usage
 
-### Pre-requirements & customization
+### Pre-requirements 
 
 - Ansible and Terraform installed -
    ```
@@ -72,12 +72,6 @@ Those settings can be modified by editing the roles in the Ansible directory.
    $ terraform --version
    Terraform v0.14.4
    ```
-   
-- Edit `terraform/variables.tf`-
-
-   Change ALL values to match your OpenStack environment,\
-   You can query the values via OpenStack UI dashboard or the cli.([guide how to get resources information](https://github.com/ipolonsk/openstack-vms-automation/blob/master/docs/get_resources_names.md))
- 
 - Download your credentials from the OpenStack API interface and copy it to our main folder under the name "openstack-credentials.sh". 
 ([guide how to download the credentials file](https://github.com/ipolonsk/openstack-vms-automation/blob/master/docs/get_credentials_file.md))
 
@@ -91,12 +85,21 @@ Those settings can be modified by editing the roles in the Ansible directory.
    ├── README.md
    └── terraform
    ```
+   
+### Customization  
+
+- Edit `terraform/variables.tf`-
+
+   Change ALL values to match your OpenStack environment,\
+   You can query the values via OpenStack UI dashboard or the cli.([guide how to get resources information](https://github.com/ipolonsk/openstack-vms-automation/blob/master/docs/get_resources_names.md))
 
 - Edit `ansible/group_vars/authorized_keys.yml` - \
 to include the ssh-keys you want to be deployed to the user 'admin'.
 
-- Custumize the ansible configutaion be editing or adding roles as you want under `ansible/roles`
-and include them in the `ansible/deployment.yml` playbook.
+- Custumize the ansible configutaion be editing or adding roles:
+ - Create a new folder for the role under ansible/roles/
+ - Create a new file tasks/main.yml under that folder with the modules.
+ - Include/delete the roles in the `ansible/deployment.yml` playbook.
 
 ### Running the deployer
 
