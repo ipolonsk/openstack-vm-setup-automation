@@ -97,9 +97,9 @@ Those settings can be modified by editing the roles in the Ansible directory.
 to include the ssh-keys you want to be deployed to the user 'admin'.
 
 - Custumize the ansible configutaion be editing or adding roles:
- - Create a new folder for the role under ansible/roles/
- - Create a new file tasks/main.yml under that folder with the modules.
- - Include/delete the roles in the `ansible/deployment.yml` playbook.
+  - Create a new folder for the role under ansible/roles/
+  - Create a new file tasks/main.yml under that folder with the modules.
+  - Include/delete the roles in the `ansible/deployment.yml` playbook.
 
 ### Running the deployer
 
